@@ -1,5 +1,5 @@
 select 
-  concatenate(store_id, product_id) as stock_id,
+  concat(store_id, '-', product_id) as stock_id,
   store_id,
   product_id,
   quantity

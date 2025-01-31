@@ -38,7 +38,7 @@ models:
     description: "This model contains information about each item included in an order, including its price and quantity"
     columns:
       - name: order_item_id
-        description: "Primary key, unique identifier for each order_item"
+        description: "Primary key, unique identifier for each order_item : concatenation of order_id and item_id"
         tests:
             - unique
             - not_null
