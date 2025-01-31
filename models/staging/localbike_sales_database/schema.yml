@@ -1,0 +1,96 @@
+version: 2
+
+models:
+  - name: stg_localbike_sales_database__customer
+    description: "This model contains customer-related information, including where they live"
+    columns:
+      - name: customer_id
+        description: "Primary key, unique identifier for each customer"
+        tests:
+            - unique
+            - not_null
+
+
+  - name: stg_localbike_sales_database__order
+    description: "This model contains information about orders placed by customers, including the status of each order"
+    columns:
+      - name: order_id
+        description: "Primary key, unique identifier for each order"
+        tests:
+            - unique
+            - not_null
+      - name: store_id
+        description: "Foreign key linking the order store."
+        tests:
+          - relationships:
+              name: store_id_id_foreign_key_in_stg_localbike_sales_database__order
+              to: ref('stg_localbike_sales_database__stores')
+              field: store_id
+      - name: staff_id
+        description: "Foreign key linking the the staff who carried out the sale"
+        tests:
+          - relationships:
+              name: staff_id_id_foreign_key_in_stg_localbike_sales_database__order
+              to: ref('stg_localbike_sales_database__stores')
+              field: store_id
+
+  - name: stg_localbike_sales_database__order_item
+    description: "This model contains information about each item included in an order, including its price and quantity"
+    columns:
+      - name: order_item_id
+        description: "Primary key, unique identifier for each order_item : concatenation of order_id and item_id"
+        tests:
+            - unique
+            - not_null
+      - name: order_id
+        description: "Foreign key linking the order item to the corresponding order."
+        tests:
+          - relationships:
+              name: order_id_id_foreign_key_in_stg_sales_database__order_item
+              to: ref('stg_localbike_sales_database__order')
+              field: order_id
+      - name: product_id
+        description: "Foreign key linking the ordered product item to the corresponding product."
+        tests:
+          - relationships:
+              name: product_id_id_foreign_key_in_stg_sales_database__order_item
+              to: ref('stg_localbike_production_database__product')
+              field: product_id
+      - name: total_order_item_amount
+        description: "The total amount for this order item, calculated as (list_price * quantity) * discount."
+
+
+  - name: stg_localbike_sales_database__staffs
+    description: "This model contains information staffs"
+    columns:
+      - name: staff_id
+        description: "Primary key, unique identifier for each order_item"
+        tests:
+            - unique
+            - not_null
+      - name: store_id
+        description: "Foreign key linking the staff store."
+        tests:
+          - relationships:
+              name: store_id_id_foreign_key_in_stg_localbike_sales_database__staffs
+              to: ref('stg_localbike_sales_database__stores')
+              field: store_id
+      - name: manager_id
+        description: "Foreign key linking the manager : Recursive key."
+        tests:
+          - relationships:
+              name: manager_id_id_foreign_key_in_stg_localbike_sales_database__staffs
+              to: ref('stg_localbike_sales_database__staffs')
+              field: staff_id
+
+
+  - name: stg_localbike_sales_database__stores
+    description: "This model contains information stores"
+    columns:
+      - name: store_id
+        description: "Primary key, unique identifier for each store"
+        tests:
+            - unique
+            - not_null
+
+

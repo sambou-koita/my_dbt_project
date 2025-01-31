@@ -6,5 +6,5 @@ select
   phone,
   active,
   store_id,
-  manager_id
+  cast( (case when manager_id =  'NULL' then null else manager_id end) as integer) as manager_id
 from {{ source('localbike_sales_database', 'staffs') }}
