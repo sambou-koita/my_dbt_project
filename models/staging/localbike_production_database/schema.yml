@@ -57,14 +57,14 @@ models:
         description: "Foreign key linking the store."
         tests:
           - relationships:
-              name: store_id_id_foreign_key_in_stg_localbike_sales_database__stocks
+              name: store_id_id_foreign_key_in_stg_localbike_production_database__stocks
               to: ref('stg_localbike_sales_database__stores')
               field: store_id
       - name: product_id
         description: "Foreign key linking the product items."
         tests:
           - relationships:
-              name: product_id_id_foreign_key_in_stg_localbike_sales_database__stocks
+              name: product_id_id_foreign_key_in_stg_localbike_production_database__stocks
               to: ref('stg_localbike_production_database__products')
               field: product_id
 
