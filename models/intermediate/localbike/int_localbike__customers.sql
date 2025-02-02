@@ -10,7 +10,7 @@ with  orders as (
  	  SUM(total_items) as total_items,
  	  SUM(total_distinct_items) as total_distinct_items,
  	  COUNT(DISTINCT order_id) AS total_orders
-    from {{ ref('stg_localbike_sales_database__orders' }}
+    from {{ ref('stg_localbike_sales_database__orders') }}
     group by customer_id )
 
 select 
