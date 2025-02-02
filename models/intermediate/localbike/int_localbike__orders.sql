@@ -5,6 +5,7 @@ with order_items as (
     count(distinct product_id) as total_distinct_products,
     sum(total_order_item_amount) as total_order_amount
   from {{ ref('int_localbike__order_items') }}
+  group by order_id
   )
 
 select
