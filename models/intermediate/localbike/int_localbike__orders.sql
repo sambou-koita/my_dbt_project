@@ -2,8 +2,8 @@ with order_items as (
   select 
     oi.order_id,
     sum(quantity) as total_items,
-    count(distinct product_id) as total_distinct_products
-    sum(oi.total_order_item_amount) as totalorder_amount
+    count(distinct product_id) as total_distinct_products,
+    sum(oi.total_order_item_amount) as total_order_amount
   from {{ ref('int_localbike__order_items') }}
   )
 
