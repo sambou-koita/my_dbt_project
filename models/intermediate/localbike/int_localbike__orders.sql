@@ -4,7 +4,7 @@ with order_items as (
     sum(quantity) as total_items,
     count(distinct product_id) as total_distinct_products
     sum(oi.total_order_item_amount) as totalorder_amount
-  from {{ ref(int_localbike__order_items) }}
+  from {{ ref('int_localbike__order_items') }}
   )
 
 select
@@ -22,5 +22,5 @@ select
   oi.totalorder_amount,
 
 
-from {{ ref(stg_localbike_sales_database__orders }} as order
+from {{ ref('stg_localbike_sales_database__orders') }} as order
   left join order_items as oi on order.order_id = oi.order_id
