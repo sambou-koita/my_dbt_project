@@ -19,6 +19,6 @@ select
   ord.staff_id,
   oi.total_items,
   oi.total_distinct_products,
-  oi.totalorder_amount
+  oi.total_order_amount
 from {{ ref('stg_localbike_sales_database__orders') }} as ord
   left join order_items as oi on ord.order_id = oi.order_id
