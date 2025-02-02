@@ -8,16 +8,16 @@ with order_items as (
   )
 
 select
-  order.order_id,
-  order.customer_id,
-  order.order_status,
-  order.order_date,
-  order.required_date,
-  order.shipped_date,
-  order.store_id,
-  order.staff_id,
+  ord.order_id,
+  ord.customer_id,
+  ord.order_status,
+  ord.order_date,
+  ord.required_date,
+  ord.shipped_date,
+  ord.store_id,
+  ord.staff_id,
   oi.total_items,
   oi.total_distinct_products,
   oi.totalorder_amount
-from {{ ref('stg_localbike_sales_database__orders') }} as order
+from {{ ref('stg_localbike_sales_database__orders') }} as ord
   left join order_items as oi on order.order_id = oi.order_id
