@@ -16,11 +16,8 @@ select
   order.shipped_date,
   order.store_id,
   order.staff_id,
-
   oi.total_items,
   oi.total_distinct_products,
-  oi.totalorder_amount,
-
-
+  oi.totalorder_amount
 from {{ ref('stg_localbike_sales_database__orders') }} as order
   left join order_items as oi on order.order_id = oi.order_id
