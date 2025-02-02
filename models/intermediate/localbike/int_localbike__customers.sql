@@ -25,7 +25,7 @@ select
   ord.dt_last_order,
   ord.longevity,
   ord.total_amount_spent + 0 as total_amount_spent,
-  ord.total_orders + 0 as total_amount_spent
+  ord.total_orders + 0 as total_orders
 from 
   {{ ref('stg_localbike_sales_database__customers') }} as cust
   left join orders as ord on cust.customer_id = ord.customer_id
