@@ -11,15 +11,15 @@ with  orders as (
     group by customer_id )
 
 select 
-  customer_id,
-  first_name,
-  last_name,
-  phone,
-  email,
-  street,
-  city,
-  state,
-  zip_code,
+  cust.customer_id,
+  cust.first_name,
+  cust.last_name,
+  cust.phone,
+  cust.email,
+  cust.street,
+  cust.city,
+  cust.state,
+  cust.zip_code,
 
   ord.dt_first_order,
   ord.dt_last_order,
