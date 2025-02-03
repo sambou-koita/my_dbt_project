@@ -15,7 +15,6 @@ with stores_product_total_sale_4w as (
     oi.product_name
 )
 select 
-  concat(st.store_id, '-', prd_sales.product_id) as 
   st.store_id,
   st.store_name,
   prd_sales.product_id,
