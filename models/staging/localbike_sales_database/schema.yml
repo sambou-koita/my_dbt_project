@@ -32,7 +32,7 @@ models:
           - relationships:
               name: staff_id_id_foreign_key_in_stg_localbike_sales_database__order
               to: ref('stg_localbike_sales_database__stores')
-              field: store_id
+              field: staff_id
 
   - name: stg_localbike_sales_database__order_items
     description: "This model contains information about each item included in an order, including its price and quantity"

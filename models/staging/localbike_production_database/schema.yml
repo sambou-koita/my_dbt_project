@@ -42,7 +42,7 @@ models:
           - relationships:
               name: category_id_id_foreign_key_in_stg_localbike_production_database__product
               to: ref('stg_localbike_production_database__categories')
-              field: brand_id
+              field: category_id
 
 
   - name: stg_localbike_production_database__stocks
