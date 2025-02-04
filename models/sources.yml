@@ -1,32 +1,6 @@
 version: 2
 
 sources:
-  - name: googles_analytics_4
-    schema: google_analytics_4
-    tables:
-      - name: events_20210131
-      
-  - name: google_sheets
-    schema: google_sheets
-    tables:
-      - name: account_manager_region_mapping
-
-  - name: sales_database
-    schema: analytics_engineer
-    tables:
-      - name: feedback
-      - name: payment
-      - name: product
-      - name: order
-      - name: order_item
-      - name: seller
-      - name: user
-
-  - name: airbnb
-    schema: airbnb
-    tables:
-      - name: listings
-
   - name: localbike_production_database
     schema: localbike_production_database
     tables:
