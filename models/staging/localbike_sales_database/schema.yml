@@ -31,7 +31,7 @@ models:
         tests:
           - relationships:
               name: staff_id_id_foreign_key_in_stg_localbike_sales_database__order
-              to: ref('stg_localbike_sales_database__stores')
+              to: ref('stg_localbike_sales_database__staffs')
               field: staff_id
 
   - name: stg_localbike_sales_database__order_items
