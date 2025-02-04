@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_localbike_sales_database__customer
+  - name: stg_localbike_sales_database__customers
     description: "This model contains customer-related information, including where they live"
     columns:
       - name: customer_id
@@ -11,7 +11,7 @@ models:
             - not_null
 
 
-  - name: stg_localbike_sales_database__order
+  - name: stg_localbike_sales_database__orders
     description: "This model contains information about orders placed by customers, including the status of each order"
     columns:
       - name: order_id
@@ -31,10 +31,10 @@ models:
         tests:
           - relationships:
               name: staff_id_id_foreign_key_in_stg_localbike_sales_database__order
-              to: ref('stg_localbike_sales_database__stores')
-              field: store_id
+              to: ref('stg_localbike_sales_database__staffs')
+              field: staff_id
 
-  - name: stg_localbike_sales_database__order_item
+  - name: stg_localbike_sales_database__order_items
     description: "This model contains information about each item included in an order, including its price and quantity"
     columns:
       - name: order_item_id
@@ -47,14 +47,14 @@ models:
         tests:
           - relationships:
               name: order_id_id_foreign_key_in_stg_sales_database__order_item
-              to: ref('stg_localbike_sales_database__order')
+              to: ref('stg_localbike_sales_database__orders')
               field: order_id
       - name: product_id
         description: "Foreign key linking the ordered product item to the corresponding product."
         tests:
           - relationships:
               name: product_id_id_foreign_key_in_stg_sales_database__order_item
-              to: ref('stg_localbike_production_database__product')
+              to: ref('stg_localbike_production_database__products')
               field: product_id
       - name: total_order_item_amount
         description: "The total amount for this order item, calculated as (list_price * quantity) * discount."
@@ -64,7 +64,7 @@ models:
     description: "This model contains information staffs"
     columns:
       - name: staff_id
-        description: "Primary key, unique identifier for each order_item"
+        description: "Primary key, unique identifier for each order_items"
         tests:
             - unique
             - not_null

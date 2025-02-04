@@ -21,7 +21,7 @@ models:
             - not_null
 
 
-  - name: stg_localbike_production_database__product
+  - name: stg_localbike_production_database__products
     description: "This model contains details of products available for sale"
     columns:
       - name: product_id
@@ -41,8 +41,8 @@ models:
         tests:
           - relationships:
               name: category_id_id_foreign_key_in_stg_localbike_production_database__product
-              to: ref('stg_localbike_production_database__category')
-              field: brand_id
+              to: ref('stg_localbike_production_database__categories')
+              field: category_id
 
 
   - name: stg_localbike_production_database__stocks
