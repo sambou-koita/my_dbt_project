@@ -1,0 +1,9 @@
+models:
+  - name: mrt_localbike_store_stocks
+    description: '{{ doc("mrt_localbike_store_stocks") }}'
+    columns:
+      - name: total_4w_sales
+        description: "Total sales for this product in the store the past 4 weeks"
+      - name: indc_stock
+        description: "Sales over the last 4 weeks compared with stock by product (in %) : An score greater than 100 means that replenishment is urgently required"
+
