@@ -5,8 +5,8 @@
    sum(total_order_amount) as year_sales_amount
   from {{ ref('int_localbike__orders') }}
   group by 
-    store,
-     extract(year from order_date)
+    store_id,
+    extract(year from order_date)
 )
 select 
   stores.store_id,
