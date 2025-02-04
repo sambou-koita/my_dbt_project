@@ -21,7 +21,7 @@ models:
             - not_null
 
 
-  - name: stg_localbike_production_database__product
+  - name: stg_localbike_production_database__products
     description: "This model contains details of products available for sale"
     columns:
       - name: product_id

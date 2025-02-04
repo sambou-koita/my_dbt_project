@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: stg_localbike_sales_database__customer
+  - name: stg_localbike_sales_database__customers
     description: "This model contains customer-related information, including where they live"
     columns:
       - name: customer_id
@@ -11,7 +11,7 @@ models:
             - not_null
 
 
-  - name: stg_localbike_sales_database__order
+  - name: stg_localbike_sales_database__orders
     description: "This model contains information about orders placed by customers, including the status of each order"
     columns:
       - name: order_id
@@ -34,7 +34,7 @@ models:
               to: ref('stg_localbike_sales_database__stores')
               field: store_id
 
-  - name: stg_localbike_sales_database__order_item
+  - name: stg_localbike_sales_database__order_items
     description: "This model contains information about each item included in an order, including its price and quantity"
     columns:
       - name: order_item_id
